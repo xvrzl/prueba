@@ -59,31 +59,34 @@ public class EjemploClases implements EntryPoint {
 		dynamicForm = new DynamicForm(); 
 		textnombre = new TextItem("Nombre", "Nombre");
 		textnombre.setTextBoxStyle("n52_sensorweb_client_abo_name_textbox");
-		textcedula = new TextItem("Cedula", "Cedula");
-		textdireccion = new TextItem("Direccion", "Direccion");
+		textcedula = new TextItem("Cédula", "Cedula");
+		textdireccion = new TextItem("Dirección", "Dirección");
 		ButtonItem buttonitemaceptar = new ButtonItem("Enviar");
 		buttonitemaceptar.addClickHandler(new com.smartgwt.client.widgets.form.fields.events.ClickHandler() {
 			
 			public void onClick(com.smartgwt.client.widgets.form.fields.events.ClickEvent event) {
-				
 				greetingService.settearPersona(callback);
 			}
 		});
 		dynamicForm.setFields(textcedula, textnombre, textdireccion, buttonitemaceptar);
 		vlayout.addMember(dynamicForm);
 		vlayout.draw();
-		
 	}
-	
-	final AsyncCallback<Tblpersona>  callback=new AsyncCallback<Tblpersona>(){
+	 
+	final AsyncCallback<Tblpersona>  callback = new AsyncCallback<Tblpersona>(){
 		public void onFailure(Throwable caught) {
 			SC.say("Error dado:" + caught.toString());
 		}
 		public void onSuccess(Tblpersona result) {
-			SC.say(result.getNombre()+result.getId()+result.getApellido()+result.getDireccion());
-			dynamicForm.setValue("Cedula", result.getId());
-			dynamicForm.setValue("Nombre",result.getNombre()+" "+ result.getApellido());
-			dynamicForm.setValue("Direccion",result.getDireccion());
+			SC.say(
+				result.getNombre() +
+				result.getId() +
+				result.getApellido() +
+				result.getDireccion()
+			);
+			dynamicForm.setValue("Cédula", result.getId());
+			dynamicForm.setValue("Nombre", result.getNombre() + " " + result.getApellido());
+			dynamicForm.setValue("Dirección", result.getDireccion());
 		}		
 	};	
 }
