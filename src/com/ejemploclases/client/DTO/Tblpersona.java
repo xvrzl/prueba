@@ -7,10 +7,10 @@ public class Tblpersona implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public String id;
-	public String nombre;
-	public String apellido;
-	public String direccion;
+	private String id;
+	private String nombre;
+	private String apellido;
+	private String direccion;
 	private Integer edad;
 	
 	public Tblpersona(){
