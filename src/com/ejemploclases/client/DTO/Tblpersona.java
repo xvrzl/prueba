@@ -11,6 +11,7 @@ public class Tblpersona implements Serializable{
 	public String nombre;
 	public String apellido;
 	public String direccion;
+	private Integer edad;
 	
 	public Tblpersona(){
 		
@@ -45,6 +46,14 @@ public class Tblpersona implements Serializable{
 	}
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
+	}
+
+	private void setEdad(Integer edad) {
+		this.edad = edad;
+	}
+
+	private Integer getEdad() {
+		return edad;
 	}
 	
 }
